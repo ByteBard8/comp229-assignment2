@@ -4,9 +4,15 @@ import cookieParser from 'cookie-parser'
 import compress from 'compression'
 import cors from 'cors'
 import helmet from 'helmet'
+import userRoutes from './routes/'
+
 const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use('/', userRoutes)
+
+
 app.use(cookieParser())
 app.use(compress())
 app.use(helmet())
