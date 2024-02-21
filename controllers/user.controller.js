@@ -18,20 +18,20 @@ const create = async (req, res) => {
     } 
 }
 
-// const list = async (req, res) => { 
-//     try {
-//         let users = await User.find().select('name email    updated created') 
-//         res.json(users)
-//     } catch (err) {
-//         return res.status(400).json({
-//         error: errorHandler.getErrorMessage(err) 
-//     })
-//     } 
-// }
-    
 const list = async (req, res) => { 
-    res.json(["a","b"])
-    }
+    try {
+        let users = await User.find().select('name email updated created') 
+        res.json(users)
+    } catch (err) {
+        return res.status(400).json({
+        error: errorHandler.getErrorMessage(err) 
+    })
+    } 
+}
+    
+// const list = async (req, res) => { 
+//     res.json(["a","b"])
+//     }
 
 const userByID = async (req, res, next, id) => { 
     try {
