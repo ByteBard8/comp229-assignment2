@@ -9,17 +9,12 @@ import userRoutes from './routes/user.route.js'
 import productRoutes from "./routes/product.route.js"
 
 import 'dotenv/config';
-// console.log(process.env);
+
 mongoose.Promise = global.Promise;
 
-mongoose.connect(process.env.MONGODB_URI, { 
-    //useNewUrlParser: true,
-//useCreateIndex: true, 
-//useUnifiedTopology: true 
-} )
+mongoose.connect(process.env.MONGODB_URI, {} )
 .then(() => {
     console.log("Connected to the database!");
-    // console.log(process.env.MONGODB_URI);
     })
 mongoose.connection.on('error', () => {
 throw new Error(`unable to connect to database: ${config.mongoUri}`) 

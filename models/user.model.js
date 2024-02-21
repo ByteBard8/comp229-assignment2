@@ -30,7 +30,6 @@ const UserSchema = new mongoose.Schema({
 UserSchema.virtual('password')
     .set(function(password) {
     this._password = password;
-    //this.salt = this.makeSalt();
     this.hashed_password = password;
     })
     .get(function() {
